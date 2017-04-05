@@ -31,7 +31,7 @@ class RssController {
     _init() {
         try {
             this._getSession();
-            this._getRss(Object.keys(this.sessionFeeds)[0]);
+            this._getRss(this._getSelected());
         } catch (error) {
             console.error(error);
         }
@@ -63,6 +63,15 @@ class RssController {
             }
         }
         return feeds;
+    }
+
+    _getSelected() {
+        for (let n1 in this.sessionFeeds) {
+            if (this.sessionFeeds[n1].selected) {
+                return n1;
+            }
+        }
+        return Object.keys(this.sessionFeeds)[0];
     }
 
     _handleRssSync(url, feeds) {
@@ -115,6 +124,7 @@ class RssController {
 
     _handleLoadRss(url) {
         console.log('Load rss: %s', url);
+        this.sessionFeeds[url].selected = true;
         this._getRss(url);
     }
 
