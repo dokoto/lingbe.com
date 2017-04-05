@@ -1,7 +1,7 @@
 'use strict';
 
-const RssTpl = require('./templates/rss.html');
-const RssItemTpl = require('./templates/rssItem.html');
+const RssContainerTpl = require('./templates/rss_container.html');
+const RssItemTpl = require('./templates/rss_item.html');
 const Marionette = require('backbone.marionette');
 
 require('../../sass/rss.scss');
@@ -32,7 +32,7 @@ let RssCollection = Marionette.CollectionView.extend({
 let RssViewLayout = Marionette.View.extend({
     tagName: 'div',
     className: 'rss-container',
-    template: RssTpl,
+    template: RssContainerTpl,
     childView: RssCollection,
     regions: {
         rssRegion: '.body-rss',

@@ -18,7 +18,7 @@ class App extends Marionette.Application {
                 if (Backbone.History.started === false) {
                     Backbone.history.start();
                 }
-                APP.router.navigate('greetings:init', {
+                APP.router.navigate('rss:init', {
                     trigger: true
                 });
             }

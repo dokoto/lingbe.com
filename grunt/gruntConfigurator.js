@@ -150,7 +150,7 @@ var doMap = {
 
 function header(grunt, data) {
     grunt.log.writeln('*********************************************************************');
-    grunt.log.writeln('CV Constructor System... ' + data.pkg.version + 'v');
+    grunt.log.writeln('Lingbe Constructor System... ' + data.pkg.version + 'v');
     grunt.log.writeln('*********************************************************************');
     grunt.log.writeln('Project           : ' + data.args.target);
     grunt.log.writeln('App version       : ' + data.args.versionApp);
@@ -159,7 +159,6 @@ function header(grunt, data) {
     grunt.log.writeln('Mock actived      : ' + data.args.mocks);
     grunt.log.writeln('Build Date        : ' + data.args.build_date);
     grunt.log.writeln('Verbose           : ' + data.args.verbose);
-    grunt.log.writeln('Greetings         : ' + data.args.greetings);
     grunt.log.writeln('Languaje          : ' + data.args.lang);
     grunt.log.writeln('**********************************************************************');
 }
