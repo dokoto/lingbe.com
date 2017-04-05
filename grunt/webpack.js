@@ -43,6 +43,9 @@ module.exports = function(grunt, options) {
                     test: /\.html$/,
                     loader: "underscore-template-loader"
                 }, {
+                    test: /\.css$/,
+                    loader: "style-loader!css-loader"
+                }, {
                     test: /\.scss$/,
                     use: [{
                         loader: "style-loader" // creates style nodes from JS strings
@@ -114,6 +117,9 @@ module.exports = function(grunt, options) {
                 rules: [{
                     test: /\.html$/,
                     loader: "underscore-template-loader"
+                }, {
+                    test: /\.css$/,
+                    loader: "style-loader!css-loader"
                 }, {
                     test: /\.scss$/,
                     use: [{

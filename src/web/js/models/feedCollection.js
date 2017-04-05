@@ -28,7 +28,9 @@ class FeedCollection extends Backbone.Collection {
             model.add([{
                 title: $(this).find("title").text(),
                 link: $(this).find("link").text(),
-                description: $(this).find("description").text()
+                description: $(this).find("description").text(),
+                read: false,
+                favorite: false
             }]);
         });
         model.trigger('sync', model);

@@ -16,7 +16,6 @@ let RssItem = Marionette.View.extend({
     }
 });
 
-
 let RssCollection = Marionette.CollectionView.extend({
     tagName: 'ul',
     id: 'body-rss-list',
@@ -27,7 +26,6 @@ let RssCollection = Marionette.CollectionView.extend({
         this.trigger('rss:render:finished');
     }
 });
-
 
 let RssViewLayout = Marionette.View.extend({
     tagName: 'div',
@@ -50,6 +48,8 @@ let RssViewLayout = Marionette.View.extend({
     events: {
         'click .header-rss-rigth': 'newRss',
         'change .rss-urls': 'loadRss',
+        'click .item-title': 'showFeed',
+        'click .item-favorite-picture': 'maskAsFavorite'
     },
     newRss: function(e) {
         e.preventDefault();
@@ -58,6 +58,16 @@ let RssViewLayout = Marionette.View.extend({
     loadRss: function(e) {
         e.preventDefault();
         this.trigger('rss:load', e.target.options[e.target.selectedIndex].value);
+    },
+    showFeed: function(e) {
+        e.preventDefault();
+        $(e.target).addClass('read');
+        this.trigger('rss:show', $('select.rss-urls option:selected').val(), e.target.href);
+    },
+    maskAsFavorite: function(e) {
+        e.preventDefault();
+        $(e.target).toggleClass('unfavorite');
+        this.trigger('rss:favorite', $('select.rss-urls option:selected').val(), $(e.target).parent().parent().find('.item-title').attr('href'));
     }
 });
 

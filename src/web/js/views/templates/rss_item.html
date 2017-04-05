@@ -1,9 +1,9 @@
 <li class="title">
     <div class="rss-item-left">
-        <img class="item-favorite-picture" src="../../../assets/img/favorite_icon.png" alt="favorite icon" />
+        <img class="item-favorite-picture <%= (favorite) ? '' : 'unfavorite'%>" src="../../../assets/img/favorite_icon.png" alt="favorite icon" />
     </div>
     <div class="rss-item-rigth">
-        <a class="item-title" href="<%=link%>">
+        <a class="item-title <%= (read) ? 'read' : ''%>" href="<%=link%>">
             <%=title%>
         </a>
         <p class="item-description">
