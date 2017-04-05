@@ -2,14 +2,13 @@
 
 const _ = require('underscore');
 const Backbone = require('backbone');
-const GreetingsView = require('../views/greetings');
+const RssView = require('../views/rss');
 const constants = require('../../../assets/config/constants');
-
-class GreetingsController {
+//https://www.npmjs.com/package/rss-to-json
+class RssController {
     constructor() {
         _.extend(this, Backbone.Events);
-        this.greetingsView = new GreetingsView({
-            greetings: constants.GREETINGS,
+        this.rssView = new RssView({
             build_date: constants.BUILD_DATE,
             version: constants.VERSION_APP,
             title: constants.APP_DESCRIPTION
@@ -18,13 +17,13 @@ class GreetingsController {
     }
 
     _setListeners() {
-        this.on('greetings:init', this._init.bind(this));
+        this.on('rss:init', this._init.bind(this));
     }
 
     _init() {
-        APP.getRegion().show(this.greetingsView);
+        APP.getRegion().show(this.rssView);
     }
 }
 
 
-module.exports = GreetingsController;
+module.exports = RssController;

@@ -15,8 +15,7 @@ class Router extends Marionette.AppRouter {
         super({
             controller: args[0].controller,
             appRoutes: {
-                'greetings:init': 'greetings',
-                'chat:init': 'chat',
+                'rss:init': 'rss',
             }
         });
     }

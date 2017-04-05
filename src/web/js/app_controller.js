@@ -4,8 +4,7 @@ module.exports = {
     initialize: (options) => {
         console.log('[ROUTER] initialization');
     },
-    chat: () => {},
-    greetings: () => {},
+    rss: () => {},
     regions: {
         appRegion: '#app-region',
         settingsRegion: '#settings-region',
