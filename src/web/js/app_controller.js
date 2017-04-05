@@ -1,10 +1,10 @@
 'use strict';
 
 module.exports = {
-    initialize: (options) => {
+    initialize: function(options) {
         console.log('[ROUTER] initialization');
     },
-    rss: () => {},
+    rss: function() {},
     regions: {
         appRegion: '#app-region',
         settingsRegion: '#settings-region',

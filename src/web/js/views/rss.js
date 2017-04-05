@@ -39,9 +39,7 @@ let RssViewLayout = Marionette.View.extend({
     },
     templateContext: function() {
         return {
-            build_date: this.getOption('build_date'),
-            version: this.getOption('version'),
-            title: this.getOption('title'),
+            urlFeeds: this.getOption('urlFeeds')
         };
     },
     onRender: function() {
@@ -59,7 +57,7 @@ let RssViewLayout = Marionette.View.extend({
     },
     loadRss: function(e) {
         e.preventDefault();
-        this.trigger('rss:load');
+        this.trigger('rss:load', e.target.options[e.target.selectedIndex].value);
     }
 });
 

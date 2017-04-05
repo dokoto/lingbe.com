@@ -1,7 +1,11 @@
 <section id="sec-rss" class="container">
     <header class="header-rss">
         <div class="header-rss-left">
-            <select class="rss-urls" name="rss-urls"></select>
+            <select class="rss-urls" name="rss-urls">
+              <%urlFeeds.forEach(function(el) { %>
+                  <option value="<%=el%>"><%=el%></option>
+              <%});%>
+            </select>
         </div>
         <div class="header-rss-rigth">
             <img class="new-rss-picture" src="../../../assets/img/rssfeed_icon.png" alt="New Rss" />

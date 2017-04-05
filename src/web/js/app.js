@@ -9,11 +9,11 @@ class App extends Marionette.Application {
     constructor() {
         super({
             region: AppController.regions.appRegion,
-            onBeforeStart: (options, args) => {
+            onBeforeStart: function(options, args) {
                 console.log('[APP] onBeforeStart');
             },
 
-            onStart: (options, args) => {
+            onStart: function(options, args) {
                 console.log('onStart. Options: %o', args);
                 if (Backbone.History.started === false) {
                     Backbone.history.start();
