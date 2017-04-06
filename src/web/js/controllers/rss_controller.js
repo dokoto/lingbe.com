@@ -108,9 +108,12 @@ class RssController {
 
     _handlePopup(url) {
         console.log('Handle popup %s', url);
-        this.sessionFeeds[url] = [];
-        Store.set('feeds', this.sessionFeeds);
-        this._getRss(url);
+        if (typeof url === 'string' && url.match(/^https?:\/\/.*/ig)) {
+            this.sessionFeeds[url] = {};
+            Store.set('feeds', this.sessionFeeds);
+            this._setSelected(url);
+            this._getRss(url);
+        }
     }
 
     _handleShowFeed(rssUrl, url) {

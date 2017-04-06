@@ -5,7 +5,7 @@ module.exports = function(grunt, options) {
 
         grunt.log.writeln('Use : #> grunt [options] [task]');
         grunt.log.writeln('Ej: #> grunt --mode=dev --versionApp=0.0.1 [task name]');
-        grunt.log.writeln('Debug Win Ej: #> %gruntd% --mode=dev --versionApp=0.0.1 build-web');
+        grunt.log.writeln('Debug Win Ej: #> %gruntd% --mode=dev --versionApp=0.0.1 web');
 
         grunt.log.writeln(' ');
         grunt.log.writeln('[Opciones *:parametro obligatorio] >');
