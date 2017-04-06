@@ -25,11 +25,18 @@ module.exports = function(grunt, options) {
                 name: '<%=pkg.name%>'
             }
         },
-        add_platforms: {
+        add_android_platforms: {
             options: {
                 command: 'platform',
                 action: 'add',
                 platforms: ['android']
+            }
+        },
+        add_ios_platforms: {
+            options: {
+                command: 'platform',
+                action: 'add',
+                platforms: ['ios']
             }
         },
         add_plugins: {
