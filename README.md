@@ -1,5 +1,5 @@
 # Test de Manuel Alfaro Sierra para Lingbe.com
-
+[PDF TEST](https://github.com/dokoto/lingbe.com/blob/master/docs/Programming%20Test.pdf)
 ## FRONTEND : HYBRID RSS READER
 
 ##### Installation
