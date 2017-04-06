@@ -18,7 +18,8 @@ class FeedCollection extends Backbone.Collection {
                 xml: "application/rss+xml"
             },
             dataType: "xml",
-            success: this._handleFetchSuccess.bind(this)
+            success: this._handleFetchSuccess.bind(this),
+            fail: this._handleFetchFail.bind(this)
         });
     }
 
@@ -34,6 +35,10 @@ class FeedCollection extends Backbone.Collection {
             }]);
         });
         model.trigger('sync', model);
+    }
+
+    _handleFetchFail(jqXHR, textStatus, errorThrown ) {
+        console.log(textStatus);
     }
 }
 

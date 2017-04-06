@@ -72,17 +72,17 @@ var doMap = {
     },
 
     global: function(grunt) {
+        const packageApp = grunt.file.readJSON('package.json');
         var data = {};
+
+        data.baseDir = process.cwd();
+        data.pkg = packageApp;
 
         return data;
     },
 
     args: function(grunt, data) {
-        const packageApp = grunt.file.readJSON('package.json');
-        const validParams = require('./config/valid_values.json');
-
-        data.baseDir = process.cwd();
-        data.pkg = packageApp;
+        const validParams = require('./config/valid_values.json');        
 
         data.args = {};
         if (grunt.option('versionApp') === undefined) {

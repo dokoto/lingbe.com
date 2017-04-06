@@ -54,31 +54,41 @@ class RssController {
     }
 
     _mergeRss(url, feeds) {
-        for (let i in this.sessionFeeds[url]) {
-            let sessionFeed = this.sessionFeeds[url][i];
-            let feed = feeds.findWhere(sessionFeed);
+        for (let urlNews in this.sessionFeeds[url]) {
+            if (urlNews === 'selected') {
+                continue;
+            }
+            let feed = feeds.where({
+                link: urlNews
+            })[0];
             if (feed) {
-                feed.read = sessionFeed.read || false;
-                feed.favorite = sessionFeed.favorite || false;
+                feed.set('read', this.sessionFeeds[url][urlNews].read || false);
+                feed.set('favorite', this.sessionFeeds[url][urlNews].favorite || false);
             }
         }
         return feeds;
     }
 
     _getSelected() {
-        for (let n1 in this.sessionFeeds) {
-            if (this.sessionFeeds[n1].selected) {
-                return n1;
+        for (let it in this.sessionFeeds) {
+            if (this.sessionFeeds[it].selected) {
+                return it;
             }
         }
         return Object.keys(this.sessionFeeds)[0];
+    }
+
+    _setSelected(url) {
+        for (let it in this.sessionFeeds) {
+            this.sessionFeeds[it].selected = (it === url);
+        }
     }
 
     _handleRssSync(url, feeds) {
         feeds = this._mergeRss(url, feeds);
         this.rssView = new RssView({
             collection: feeds,
-            urlFeeds: Object.keys(this.sessionFeeds)
+            urlFeeds: this.sessionFeeds
         });
         this.rssView.on('rss:new', this._handleNewRss.bind(this));
         this.rssView.on('rss:load', this._handleLoadRss.bind(this));
@@ -124,7 +134,7 @@ class RssController {
 
     _handleLoadRss(url) {
         console.log('Load rss: %s', url);
-        this.sessionFeeds[url].selected = true;
+        this._setSelected(url);
         this._getRss(url);
     }
 

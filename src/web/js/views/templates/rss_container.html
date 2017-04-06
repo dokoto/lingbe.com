@@ -2,8 +2,9 @@
     <header class="header-rss">
         <div class="header-rss-left">
             <select class="rss-urls" name="rss-urls">
-              <%urlFeeds.forEach(function(el) { %>
-                  <option value="<%=el%>"><%=el%></option>
+              <%const _ = require('underscore');
+              _.each(urlFeeds, function(value, key) { %>
+                  <option value="<%=key%>" <%= (value.selected) ? 'selected' : ''%> ><%=key%></option>
               <%});%>
             </select>
         </div>
