@@ -53,7 +53,7 @@ module.exports = function(grunt, options) {
             'copy:compiled_sources',
             'cordovacli:build_ios'
         ],
-        native_prod_ois: [
+        native_prod_ios: [
             'copy:constants',
             'jshint',
             'mkdir:builds',
