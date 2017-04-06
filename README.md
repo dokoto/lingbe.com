@@ -37,8 +37,14 @@ $> ../../../../node_modules/cordova/bin/cordova run ios
 
 ## BACKEND : CONTACTS
 
-CONFIGURATION
+##### CONFIGURATION
 - Set mongodb url and port in servvices.js
+
+##### RUN SERVICE
+```
+$> cd src/services/ContactService
+$> node contactd.js --cluster
+```
 
 ##### POST: api/v1/:book/:name
 ```
