@@ -42,8 +42,7 @@ $> ../../../../node_modules/cordova/bin/cordova run ios
 
 ##### RUN SERVICE
 ```
-$> cd src/services/ContactService
-$> node contactd.js --cluster
+$> node run contactsserv
 ```
 
 ##### POST: api/v1/:book/:name
