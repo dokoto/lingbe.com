@@ -4,7 +4,7 @@
   "description": "Test para lingbe.com de Manuel Alfaro Sierra",
   "main": "cv.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "contactsserv": "node src/services/ContactService/contactd.js --cluster"
   },
   "repository": {
     "type": "git",

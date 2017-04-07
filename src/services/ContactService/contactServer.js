@@ -14,19 +14,20 @@ class ContactServer {
     }
 
     _handleHttpServer() {
-        console.log('Service listening connections at https://%s:%s with pid: ', '127.0.0.1', '8080', process.pid);
+        const address = this.address();
+        console.log('Service listening connections at https://%s:%s with pid: ', '127.0.0.1', address.port, process.pid);
     }
 
     _handleServer() {
-        https.createServer(this._options, this.restful.app).listen(8080, this._handleHttpServer.bind(this));
+        https.createServer(this._options, this.restful.app).listen(8080, this._handleHttpServer);
     }
 
     _setOptions() {
         if (ncluster.isMaster) {
             console.log('ALERTA !!! HAY QUE REGENERAR LAS KEYS');
         }
-        this._options.key = fs.readFileSync(path.join(process.cwd(), 'config/certs/key.pem'));
-        this._options.cert = fs.readFileSync(path.join(process.cwd(), 'config/certs/cert.pem'));
+        this._options.key = fs.readFileSync(path.join(__dirname, 'config/certs/key.pem'));
+        this._options.cert = fs.readFileSync(path.join(__dirname, 'config/certs/cert.pem'));
     }
 
     start() {

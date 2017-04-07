@@ -48,12 +48,12 @@ $> node contactd.js --cluster
 
 ##### POST: api/v1/:book/:name
 ```
-$> curl -k -X POST -H 'Content-Type: application/json' -d '{"phone":"914657387","mobile":"655542367"}' --user manuel:lingbe "https://127.0.0.1:8080/api/v1/contact/paco/Rosa"
+$> curl -k -X POST -H 'Content-Type: application/json' -d '{"phone":"914657387","mobile":"655542367", "email":"rosa@gmail.com"}' --user manuel:lingbe "https://127.0.0.1:8080/api/v1/contact/paco/Rosa"
 ```
 
 ##### GET: api/v1/:book/:name
 ```
-$> curl -k --user manuel:lingbe "https://127.0.0.1:8080/api/v1/contact/paco/manuel"
+$> curl -k --user manuel:lingbe "https://127.0.0.1:8080/api/v1/contact/paco/Rosa"
 ```
 
 ##### GET: api/v1/:book
@@ -63,10 +63,13 @@ $> curl -k --user manuel:lingbe "https://127.0.0.1:8080/api/v1/contact/paco"
 
 ##### PUT: api/v1/:book/:name
 ```
-$> curl -k -X PUT -H 'Content-Type: application/json' -d '{"phone":"9999999","mobile":"8888888"}' --user manuel:lingbe "https://127.0.0.1:8080/api/v1/contact/paco/Rosa"
+$> curl -k -X PUT -H 'Content-Type: application/json' -d '{"phone":"9899999","mobile":"6888888", "email":"rosa.perez@gmail.com"}' --user manuel:lingbe "https://127.0.0.1:8080/api/v1/contact/paco/Rosa"
 ```
 
 ##### DELETE: api/v1/:book/:name
 ```
 $> curl -k -X DELETE -H 'Content-Type: application/json' --user manuel:lingbe "https://127.0.0.1:8080/api/v1/contact/paco/Rosa"
 ```
+
+#### NOTE
+All bash commands were run on Ubuntu machine, in windows cmd could be different

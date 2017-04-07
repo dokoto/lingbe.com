@@ -1,9 +1,9 @@
 'use strict';
 
 const express = require('express');
-const services = require('./services');
+const contacts = require('./rutes/contacts');
 const router = express.Router();
 
-router.use('/api/v1/', services);
+router.use('/api/v1/', contacts);
 
 module.exports = router;

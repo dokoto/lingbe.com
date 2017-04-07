@@ -1,0 +1,11 @@
+{
+    "AUTH" : {
+        "USER": "manuel",
+        "PASSWORD": "lingbe"
+    },
+    "MONGODB": {
+        "URL": "mongodb://localhost",
+        "PORT": 27017,
+        "DB": "/addressbook"        
+    }
+}
